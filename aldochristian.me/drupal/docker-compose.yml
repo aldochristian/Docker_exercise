@@ -17,4 +17,4 @@ services:
     postgres:
         image: postgres:10
         environment:
-            POSTGRES_PASSWORD=example
+            POSTGRES_PASSWORD: example
