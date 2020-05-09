@@ -1,11 +1,11 @@
-version: '3'
+version: '2'
 
 services:
     drupal:
-        image: drupal:latest
-        ports:
-            -"8080:80"
-        volumes:
+      image: drupal:8.8.2
+      ports: 
+        - "8080:80"
+      volumes:
             - drupal-profile:/var/www/html/profiles
             - drupal-theme:/var/www/html/themes
             # this takes advantage of the feature in Docker that a new anonymous
@@ -15,6 +15,12 @@ services:
             - drupal-module:/var/www/html/modules
 
     postgres:
-        image: postgres:10
-        environment:
-            POSTGRES_PASSWORD: example
+      image: postgres:10
+      environment:
+        - POSTGRES_PASSWORD=example
+
+volumes:
+  drupal-module:
+  drupal-profile:
+  drupal-site:
+  drupal-theme:
